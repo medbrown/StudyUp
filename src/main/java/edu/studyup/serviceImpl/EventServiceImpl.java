@@ -12,6 +12,7 @@ import edu.studyup.util.DataStorage;
 import edu.studyup.util.StudyUpException;
 
 public class EventServiceImpl implements EventService {
+	
 
 	@Override
 	public Event updateEventName(int eventID, String name) throws StudyUpException {
@@ -40,7 +41,7 @@ public class EventServiceImpl implements EventService {
 		}
 		return activeEvents;
 	}
-
+	
 	@Override
 	public List<Event> getPastEvents() {
 		Map<Integer, Event> eventData = DataStorage.eventData;
@@ -55,7 +56,7 @@ public class EventServiceImpl implements EventService {
 		}
 		return pastEvents;
 	}
-
+	
 	@Override
 	public Event addStudentToEvent(Student student, int eventID) throws StudyUpException {
 		Event event = DataStorage.eventData.get(eventID);
