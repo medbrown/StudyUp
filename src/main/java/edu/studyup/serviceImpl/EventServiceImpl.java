@@ -21,7 +21,7 @@ public class EventServiceImpl implements EventService {
 			throw new StudyUpException("No event found.");
 		}
 
-		if(name.length() >= 20) {
+		if(name.length() > 20) {
 			throw new StudyUpException("Length too long. Maximun is 20");
 		}
 		event.setName(name);
@@ -64,6 +64,7 @@ public class EventServiceImpl implements EventService {
 			throw new StudyUpException("No event found.");
 		}
 		List<Student> presentStudents = event.getStudents();
+		
 		if(presentStudents == null) {
 			presentStudents = new ArrayList<>();
 		}

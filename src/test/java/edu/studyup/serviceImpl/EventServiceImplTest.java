@@ -266,6 +266,7 @@ class EventServiceImplTest {
 		student.setId(2);
 		
 		eventServiceImpl.addStudentToEvent(student, 2);
+		
 		Student checkStudent = new Student();
 		checkStudent = DataStorage.eventData.get(2).getStudents().get(0);
 		
