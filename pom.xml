@@ -14,19 +14,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
    		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
-	<reporting>
-	    <plugins>
-	      <plugin>
-	        <groupId>com.github.spotbugs</groupId>
-	        <artifactId>spotbugs-maven-plugin</artifactId>
-	        <version>3.1.11-SNAPSHOT</version>
-	        <configuration>
-	          <xmlOutput>true</xmlOutput>
-	          <xmlOutputDirectory>target/site</xmlOutputDirectory>
-	        </configuration>
-	      </plugin>
-	    </plugins>
-    </reporting>
 	<build>
 		<plugins>
 			<plugin>
@@ -84,6 +71,19 @@
 			            </goals>
 			        </execution>
 			    </executions>
+			</plugin>
+			<plugin>
+			  <groupId>com.github.spotbugs</groupId>
+			  <artifactId>spotbugs-maven-plugin</artifactId>
+			  <version>3.1.10</version>
+			  <dependencies>
+			    <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
+			    <dependency>
+			      <groupId>com.github.spotbugs</groupId>
+			      <artifactId>spotbugs</artifactId>
+			      <version>3.1.11</version>
+			    </dependency>
+			  </dependencies>
 			</plugin>
 		</plugins>
 	</build>
