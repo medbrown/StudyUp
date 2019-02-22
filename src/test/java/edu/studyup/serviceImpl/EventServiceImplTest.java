@@ -266,7 +266,7 @@ class EventServiceImplTest {
 		
 		eventServiceImpl.addStudentToEvent(student, 2);
 		Student checkStudent = DataStorage.eventData.get(2).getStudents().get(0);
-
+    
 		assertEquals("Mary", checkStudent.getFirstName());
 		assertEquals("Jane", checkStudent.getLastName());
 		assertEquals(2, checkStudent.getId());

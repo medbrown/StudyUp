@@ -13,6 +13,7 @@ import edu.studyup.util.DataStorage;
 import edu.studyup.util.StudyUpException;
 
 public class EventServiceImpl implements EventService {
+	
 
 	@Override
 	public Event updateEventName(int eventID, String name) throws StudyUpException {
@@ -21,7 +22,7 @@ public class EventServiceImpl implements EventService {
 			throw new StudyUpException("No event found.");
 		}
 
-		if(name.length() >= 20) {
+		if(name.length() > 20) {
 			throw new StudyUpException("Length too long. Maximun is 20");
 		}
 		event.setName(name);
@@ -42,7 +43,7 @@ public class EventServiceImpl implements EventService {
 		}
 		return activeEvents;
 	}
-
+	
 	@Override
 	public List<Event> getPastEvents() {
 		Map<Integer, Event> eventData = DataStorage.eventData;
@@ -56,7 +57,7 @@ public class EventServiceImpl implements EventService {
 		}
 		return pastEvents;
 	}
-
+	
 	@Override
 	public Event addStudentToEvent(Student student, int eventID) throws StudyUpException {
 		Event event = DataStorage.eventData.get(eventID);
@@ -64,6 +65,7 @@ public class EventServiceImpl implements EventService {
 			throw new StudyUpException("No event found.");
 		}
 		List<Student> presentStudents = event.getStudents();
+		
 		if(presentStudents == null) {
 			presentStudents = new ArrayList<>();
 		}
